@@ -15,7 +15,8 @@ public class App
     public static void main( String[] args )
     {
     	try {
-			UIManager.setLookAndFeel(new NimbusLookAndFeel()); //Nimbus水晶风格
+    		//Nimbus水晶风格，默认的是Metal风格
+			UIManager.setLookAndFeel(new NimbusLookAndFeel()); 
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
