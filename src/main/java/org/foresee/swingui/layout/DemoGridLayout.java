@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class DemoGridLayout {
 
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("FlowLayout");
+		JFrame frame = new JFrame("GridLayout");
 		frame.setSize(300, 250);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
