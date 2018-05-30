@@ -18,6 +18,7 @@ public class DemoJTable {
 		// 表头（列名称）
 		Object[] colNames={"姓名","语文","数学","英语","总分"};
 		// 内容数据
+		// @formatter:off
 		Object[][] rowData={
 				{"Antenna", 80, 80, 80, 240},
 				{"Buffalo", 70, 80, 90, 240},
@@ -26,6 +27,8 @@ public class DemoJTable {
 				{"Effort", 90, 70, 60, 220},
 				{"Foresee", 100, 90, 90, 280},
 		};
+		// @formatter:on
+		// 这种构造方式下，JTable提供TableModel的实现，并提供修改、更新UI等功能
 		JTable table=new JTable(rowData, colNames);
 		// 修改样式
 		table.setForeground(new Color(255, 0, 0));
