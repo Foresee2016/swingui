@@ -1,4 +1,4 @@
-package org.foresee.swingui.widget;
+package org.foresee.swingui.table;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
