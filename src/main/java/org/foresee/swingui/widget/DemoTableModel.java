@@ -11,7 +11,8 @@ import javax.swing.table.AbstractTableModel;
  * TableModel是个接口，指定JTable的数据模型，它的实现中封装各种数据。JTable构造函数里直接传入数据时，自动封装了TableModel
  * 已有的实现：
  * AbstractTableModel实现了大部分默认方法，留下三个未实现的方法。它的isCellEditable()返回了false，默认单元格不可编辑
- * DefaultTableModel，一个完整实现，使用Vector存储值对象，该Vector内部也是Vector，并且增加了添加删除行列等辅助操作
+ * DefaultTableModel，一个完整实现，使用Vector存储值对象，该Vector内部也是Vector，并且增加了添加删除行列等辅助操作，
+ * DefaultTableModel实现了更新数据，通知UI更新，列名称等功能，很完善，如果继承AbstractTableModel药自己实现。
  */
 public class DemoTableModel {
 	public static void main(String[] args) {
