@@ -10,7 +10,9 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
-
+/**
+ * TableCellRenderer单元格渲染器负责为每一个单元格指定样式
+ */
 public class DemoTableCellRenderer {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("JTable-ListSelectionModel");
