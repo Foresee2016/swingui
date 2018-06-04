@@ -16,6 +16,9 @@ import javax.swing.JToggleButton;
 import org.foresee.swingui.dialog.PropertyDialog.PropertyDialogCallback;
 
 public class MainFrame  extends JFrame implements PropertyDialogCallback{
+	public static void main(String[] args) {
+        new MainFrame();
+	}
 	private static final long serialVersionUID = 2755939177980775487L;
 	private List<Property> properties;
 	JButton addBtn;
