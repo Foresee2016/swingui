@@ -39,7 +39,9 @@ public class DemoJFrame extends JFrame{
 		checkPanel.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		JPanel btnPanel=new JPanel();
-		btnPanel.add(new JButton("Button 1"));
+		JButton btn1=new JButton("Button 1");
+		btn1.setForeground(Color.orange);
+		btnPanel.add(btn1);
 		btnPanel.add(new JButton("Button 2"));
 		btnPanel.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(10, 10, 10, 10), 
 				BorderFactory.createRaisedSoftBevelBorder()));
