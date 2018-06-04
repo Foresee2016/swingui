@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.border.EmptyBorder;
 
 /**
  * Border，边框。边框是对组件边界的装饰，例如为组件增加矩形有色边框，为透明的容器增加带标题的边框，
@@ -32,7 +33,8 @@ public class DemoBorder {
 		JPanel panel3 = createPanel();
 		panel3.setBorder(BorderFactory.createRaisedSoftBevelBorder());
 		JPanel panel4 = createPanel();
-		panel4.setBorder(BorderFactory.createLoweredBevelBorder());
+		panel4.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(10, 10, 10, 10),
+				BorderFactory.createLoweredBevelBorder())); //可以复合边框，外层留margin-10px，内层内嵌
 
 		panel.add(panel1);
 		panel.add(panel2);
