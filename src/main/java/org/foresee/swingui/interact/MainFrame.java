@@ -29,7 +29,7 @@ public class MainFrame extends JFrame{
 		} catch (UnsupportedLookAndFeelException e) {
 			System.err.println("无法使用Nimbus观感，将使用默认Metal观感");
 		}
-		ImageProvider provider=new ImageProvider("E:/images/640/cosmic640.jpg", "E:/images/640/winnie640.jpg");
+		ImageProvider provider=new ImageProvider("cosmic640.jpg", "winnie640.jpg");
 		MainFrame frame=new MainFrame(provider);
 		while(frame.running){
 			try {

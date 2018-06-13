@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,10 +31,11 @@ public class FrameOne extends JFrame{
 		label=new JLabel();
 		refreshIcon();
 		add(label, BorderLayout.CENTER);
-		
+		Box hBox=Box.createHorizontalBox();
 		refreshBtn=new JButton("刷新");
 		refreshBtn.setPreferredSize(new Dimension(150, 40));
-		add(refreshBtn, BorderLayout.SOUTH);
+		hBox.add(refreshBtn);
+		add(hBox, BorderLayout.SOUTH);
 	}
 	private void initController() {
 		refreshBtn.addMouseListener(new MouseAdapter() {
