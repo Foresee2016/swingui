@@ -17,6 +17,8 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.Border;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -40,6 +42,7 @@ public class TabTable extends JFrame {
 	ArrayList<JTable> tables;
 	ArrayList<Info> infos;
 	JTable table;
+	TableModelListener modelListener;
 	JTabbedPane tabPane;
 	JButton addBtn;
 	JButton delBtn;
@@ -100,7 +103,7 @@ public class TabTable extends JFrame {
 					tables.remove(curTab);
 					infos.remove(curTab);
 					tabPane.remove(curTab);
-				}else{
+				} else {
 					System.out.println("暂时没有表格，不能删除");
 				}
 			}
@@ -114,6 +117,43 @@ public class TabTable extends JFrame {
 				}
 			}
 		});
+		modelListener = new TableModelListener() {
+
+			@Override
+			public void tableChanged(TableModelEvent e) {
+				int type = e.getType();
+				if (type == TableModelEvent.UPDATE) {
+					tableDataToInfo();
+				}
+			}
+		};
+	}
+
+	protected void tableDataToInfo() {
+		int curTab = tabPane.getSelectedIndex();
+		DefaultTableModel tableModel = (DefaultTableModel) tables.get(curTab).getModel();
+		Info info = infos.get(curTab);
+		info.str = tableModel.getValueAt(0, 1).toString();
+		try {
+			info.value1 = Integer.parseInt(tableModel.getValueAt(1, 1).toString());
+			info.value2 = Integer.parseInt(tableModel.getValueAt(2, 1).toString());
+			info.value3 = Integer.parseInt(tableModel.getValueAt(3, 1).toString());
+			info.value4 = Integer.parseInt(tableModel.getValueAt(4, 1).toString());
+			info.value5 = Integer.parseInt(tableModel.getValueAt(5, 1).toString());
+			info.value6 = Integer.parseInt(tableModel.getValueAt(6, 1).toString());
+			info.value7 = Integer.parseInt(tableModel.getValueAt(7, 1).toString());
+			info.value8 = Integer.parseInt(tableModel.getValueAt(8, 1).toString());
+			info.value9 = Integer.parseInt(tableModel.getValueAt(9, 1).toString());
+			info.value10 = Integer.parseInt(tableModel.getValueAt(10, 1).toString());
+			info.value11 = Double.parseDouble(tableModel.getValueAt(11, 1).toString());
+			info.value12 = Double.parseDouble(tableModel.getValueAt(12, 1).toString());
+			info.value13 = Double.parseDouble(tableModel.getValueAt(13, 1).toString());
+			info.value14 = Double.parseDouble(tableModel.getValueAt(14, 1).toString());
+			info.value15 = Double.parseDouble(tableModel.getValueAt(15, 1).toString());
+		} catch (NumberFormatException e) {
+			System.out.println("输入到表格中的值不能转换为数字");
+			System.out.println(e.getMessage());
+		}
 	}
 
 	protected void addTable() {
@@ -132,6 +172,7 @@ public class TabTable extends JFrame {
 		tabPane.addTab("参数表" + tabCnt, scrollPane);
 		tabCnt++;
 		tabPane.setSelectedIndex(tables.size() - 1);
+		tableModel.addTableModelListener(modelListener); // 监听表格改变，反映到Info记录中
 	}
 
 	protected void setCol2(DefaultTableModel tableModel, Info info) {
